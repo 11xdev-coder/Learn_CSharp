@@ -15,6 +15,7 @@ namespace ConsoleApp1
                               variables.myChar +
                               "\ndouble floatnum = " + variables.floatnumdouble + "\nint randNum = " + variables.randNum + 
                               "\nint randNum_2 = " + variables.randNum_2 + "\nint cycles = " + variables.cycles + 
+                              "\nfloat[] foreachcycles = " + variables.foreachcycles +
                               "\nLoaded Constanta: \nconst float  cfscore = Cant load");
             Console.WriteLine("Hello World!");
             Console.WriteLine("First number: ");
@@ -185,6 +186,19 @@ namespace ConsoleApp1
             moreNumbers[1, 2] = 23;
             
             Console.WriteLine(moreNumbers[1, 2]);
+            
+            Console.WriteLine("Press any key to start another program...");
+            Console.ReadKey();
+            
+            // 10 Урок - Цикл foreach
+            
+            // Первый аргумент - переменная(любая)
+            // in
+            // Второй аргумент - Где мы беребираем
+            foreach (float el in variables.foreachcycles)
+            {
+                Console.WriteLine(el);
+            }
 
         }
     }
