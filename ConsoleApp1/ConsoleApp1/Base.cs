@@ -199,7 +199,41 @@ namespace ConsoleApp1
             {
                 Console.WriteLine(el);
             }
+            
+            Console.WriteLine("Press any key to start another program...");
+            Console.ReadKey();
+            
+            // 11 Урок - Методы и функции
+            
+            PrintLine("Enter first number");
+            int firstNum = Convert.ToInt32(Console.ReadLine());
+            PrintLine("Enter second number");
+            int secondNum = Convert.ToInt32(Console.ReadLine());
+            
+            // Вызываем функцию и передаем два аргумента
+            Multiply(firstNum, secondNum);
+            // Сохраняем возвращенные данные в переменную
+            int divideResult = Divide(firstNum, secondNum);
+            Console.WriteLine("Divide Result equals " + divideResult);
 
         }
+
+        public static void PrintLine(string line)
+        {
+            Console.WriteLine(line);
+        }
+        // Создаем функцию которая принимает два аргумента
+        // void - мы ничего не возвращаем
+        public static void Multiply(int firstMulti, int secondMulti)
+        {
+            Console.WriteLine("Multiply Result equals " + firstMulti * secondMulti);
+        }
+        
+        // тип данных указан(в нашем случае int) потому что мы уже возвращаем данные этого же типа(в нашем случае int)
+        public static int Divide(int firstDivide, int secondDivide)
+        {
+            return firstDivide / secondDivide;
+        }
+        
     }
 }
