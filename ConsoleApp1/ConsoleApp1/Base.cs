@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
+using System.IO;
 
 namespace ConsoleApp1
 {
@@ -215,7 +216,101 @@ namespace ConsoleApp1
             // Сохраняем возвращенные данные в переменную
             int divideResult = Divide(firstNum, secondNum);
             Console.WriteLine("Divide Result equals " + divideResult);
+            
+            Console.WriteLine("Press any key to start another program...");
+            Console.ReadKey();
+            
+            // 12 Урок - Работа со строками
+            // Выводим на экран вторую букву строки
+            Console.WriteLine("Second letter");
+            Console.WriteLine(variables.mystring[1]);
+            // Выводим на экран шестую букву строки
+            Console.WriteLine("Sixth letter");
+            Console.WriteLine(variables.mystring[5]);
+            // Выводим количество букв(символов) в строке
+            Console.WriteLine("Length of mystring");
+            Console.WriteLine(variables.mystring.Length);
+            // Обращаемся к классу String и к методу IsNullOrEmpty - блягодаря ему мы можем узнать - пустая ли
+            // строка(в ней ВООБЩЕ ничего не написано даже пробелов нет), в данный момент выведет False - потому что строка не пустая
+            Console.WriteLine("Is string null or empty?");
+            Console.WriteLine(String.IsNullOrEmpty(variables.mystring));
+            // Такая же функция как и IsNullOrEmpty - но если в строке есть куча пробелов или же в ней вообще ничего нет то выведет - True
+            Console.WriteLine("Is Null Or WhiteSpace?");
+            Console.WriteLine(String.IsNullOrWhiteSpace(variables.mystring));
+            
+            // String Compare - сравнивает буквы в алфавитном порядке(то есть буквы как цифры можно сказать a - 1, b - 2, c - 3 и т.д) и выводит:
+            // если первая буква меньше второй - выведет -1
+            // если первая буква равна второй - выведет 0
+            // если первая буква больше второй - выведет 1
+            Console.WriteLine(String.Compare("a", "b")); // -1
+            
+            Console.WriteLine(String.Compare("a", "a")); // 0
+            
+            Console.WriteLine(String.Compare("b", "a")); // 1
+            
+            Console.WriteLine("string is so low");
+            // ToLower() - метод для перевода строки в нижний регистр
+            Console.WriteLine(variables.mystring.ToLower());
+            
+            Console.WriteLine("string is so high".ToUpper());
+            // ToUpper() - метод для перевода строки в верхний регистр
+            Console.WriteLine(variables.mystring.ToUpper());
+            // Contains - проверяет, есть ли указаные буквы в строке(в нашем случае буквы way в строке mystring) и выводит True или False
+            Console.WriteLine(variables.mystring.Contains("way")); // True
 
+            Console.WriteLine(variables.mystring.Contains("hell")); // False
+            // StartsWith - проверяет, начинается ли строка со строки которая указана в скобках(в нашем случае проверяем, начинается ли строка Run Away! с Run)
+            Console.WriteLine(variables.mystring.StartsWith("Run")); // True
+
+            Console.WriteLine(variables.mystring.StartsWith("un")); // False
+            // EndsWith - тоже самое что и StartsWith, только проверяет не начинается ли, а заканчивается ли
+            Console.WriteLine(variables.mystring.EndsWith("Away!")); // True
+
+            Console.WriteLine(variables.mystring.EndsWith("Run")); // False
+            // Insert - вставляет символы в строку, 1-ый параметр, индекс, 2-ой параметр, символы 
+            Console.WriteLine(variables.mystring.Insert(5, "In"));
+            // Remove - удаляет все в строке после указанного индекса
+            Console.WriteLine(variables.mystring.Remove(5));
+            // Replace - 1 аргумент - подстрока которую нужно заменить 2 аргумент - на что заменяем
+            Console.WriteLine(variables.mystring.Replace("way", "yaw"));
+            // ToCharArray - Переводит строку в массив из символов
+            char[] symbolsArray = variables.mystring.ToCharArray();
+            Console.WriteLine(symbolsArray[2]);
+            string clubs = "Arsenal, Dynamo, Real";
+            // Split - 1 аргумент - буква или строка, и строка которую указали будет разделятся после указанного символа
+            // или строки(например строка: "Arsenal, Dynamo, Real" будет разделена на "Arsenal", "Dynamo", "Real")
+            string[] clubsArray = clubs.Split(',');
+            Console.WriteLine(clubsArray[1]);
+
+            Console.WriteLine("Press any key to start another program...");
+            Console.ReadKey();
+            
+            // 13 урок - Оператор try-catch
+            
+            Console.WriteLine("Enter Number: ");
+            // если код не будет выдавать ошибку FormatException(не соответствие формата) то выполнится код в try. Иначе в catch
+            // catch(тип эксепшена)
+            // Также можно указать не FormatException а любой другой эксепшен, или просто Exception, и это будет значить что catch сработает на абсолютно любые экспепшионы
+            // Типы эксепшионов - DivideByZeroException - деление на ноль, FileNotFoundException - когда файл не находит,
+            // IndexOutOfRangeException - когда индекс заходит за пределы списков, массивов и т.д
+            // Короче говоря как try-except в питоне
+            // Можно указывать сколько угодно этих catch
+            // то что в finally сработает 1000000000000000%
+            try
+            {
+                int validingNumber = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Number is valid");
+                // return - завершает весь код, но то что в finally все равно выполнится
+                return; 
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Format Exception");
+            }
+            finally
+            {
+                Console.WriteLine("final");
+            }
         }
 
         public static void PrintLine(string line)
