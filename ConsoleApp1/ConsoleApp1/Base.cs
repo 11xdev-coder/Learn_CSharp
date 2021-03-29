@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading.Channels;
 
 namespace ConsoleApp1
 {
@@ -301,7 +302,7 @@ namespace ConsoleApp1
                 int validingNumber = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("Number is valid");
                 // return - завершает весь код, но то что в finally все равно выполнится
-                return; 
+                // return; 
             }
             catch (FormatException)
             {
@@ -311,6 +312,72 @@ namespace ConsoleApp1
             {
                 Console.WriteLine("final");
             }
+            
+            Console.WriteLine("Press any key to start another program...");
+            Console.ReadKey();
+            
+            // 14 урок - Классы
+            // Создаем объект класса Animal
+            Animal cat = new Animal("Ricardo", 10, 1);
+            Console.WriteLine("Old name: ");
+            Console.WriteLine(cat.name);
+            // Если мы переменную без свойства static будем изменять, то она будет изменятся только для самого экземпляра
+            // если с static - то  она будет изменятся для всего класса
+            // вот указан хороший пример
+            Console.WriteLine();
+
+            Animal dog = new Animal("Doggo", 4, 2);
+            Console.WriteLine(dog.count.ToString() + " " + Animal.moreCount);
+            Console.WriteLine("Count of Animals: " + Animal.moreCount);
+
+        }
+
+        class Animal
+        {
+            public int count;
+            public static int moreCount;
+            public string name;
+            public int age;
+            public float happiness;
+            
+            // private, protected, public - основные модификаторы доступа.
+            // private - делает что либо приватной, то есть не будет доступно в других классах, функциях и т.д 
+            // public - делает что либо публичной, то есть будет доступен везде
+            // protected - с помощью его мы можем обращатся к чему либо только через дочерние классы
+            // Конструкторы должны иметь тоже имя что и имя у класса
+            // Конструкторы выполняются при создании нового экзепляра класса
+            public Animal ()
+            {
+                name = "Spotty";
+                age = 7;
+                happiness = 0.6;
+
+                count++;
+                moreCount++;
+                
+                PrintSettings();
+            }
+            // в конструкторе можно также указать что бы он принимал аргументы
+            // и если при создании нового экземпляра (в данный момент) не указать аргументов, то компилятор выберет нужный конструктор(самый первывй) иначе выберет второй
+            public Animal (string _name, int _age, float _happiness)
+            {
+                name = _name;
+                age = _age;
+                happiness = _happiness;
+
+                count++;
+                moreCount++;
+                
+                PrintSettings();
+            }
+            
+            public void PrintSettings()
+            {
+                Console.WriteLine("Name: " + name);
+                Console.WriteLine("Age: " + age);
+                Console.WriteLine("Happiness: " + happiness);
+            }
+            
         }
 
         public static void PrintLine(string line)
