@@ -350,7 +350,7 @@ namespace ConsoleApp1
             {
                 name = "Spotty";
                 age = 7;
-                happiness = 0.6;
+                happiness = 0.6f;
 
                 count++;
                 moreCount++;
