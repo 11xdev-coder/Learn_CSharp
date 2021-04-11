@@ -330,6 +330,9 @@ namespace ConsoleApp1
             Console.WriteLine(dog.count.ToString() + " " + Animal.moreCount);
             Console.WriteLine("Count of Animals: " + Animal.moreCount);
 
+            // 16 урок - Указатель this
+
+
         }
 
         class Animal
@@ -359,11 +362,12 @@ namespace ConsoleApp1
             }
             // в конструкторе можно также указать что бы он принимал аргументы
             // и если при создании нового экземпляра (в данный момент) не указать аргументов, то компилятор выберет нужный конструктор(самый первывй) иначе выберет второй
-            public Animal (string _name, int _age, float _happiness)
-            {
-                name = _name;
-                age = _age;
-                happiness = _happiness;
+            public Animal (string name, int age, float happiness)
+            {   
+                // Когда мы используем this, то тогда мы показываем что обращаемся именно к переменной ЭТОГО класса
+                this.name = name;
+                this.age = age;
+                this.happiness = happiness;
 
                 count++;
                 moreCount++;

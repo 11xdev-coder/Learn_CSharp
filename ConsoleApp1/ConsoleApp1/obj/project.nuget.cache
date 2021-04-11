@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zyTciyn5A1Oj7zZFAirYYi4sr9xtdkubePaLcFo6cetPm0+d/30MftbcEhvtF66FizDDwN8K4C3U6/XKFfNKrw==",
+  "dgSpecHash": "9UAhtGwGMgiBqb32mDlZM8r2ZcO2+3imKcnUrFIqDd1JvR9SBwbBMRSXdy7a2oqwN0N4HUW8kUSyZxedLbsN8w==",
   "success": true,
-  "projectFilePath": "/home/matvei/Projects/Learn_CSharp/ConsoleApp1/ConsoleApp1/ConsoleApp1.csproj",
+  "projectFilePath": "D:\\Projects\\Learn_CSharp\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
